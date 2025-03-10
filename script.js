@@ -61,6 +61,12 @@ eraseButton.addEventListener("click" , () => {
     currentModeDisplay.textContent = "Current Mode: Erase"
 }) 
 
+resetButton.addEventListener("click" , () => {
+    createGrid(currentSize)
+    currentMode = "erase"
+    currentModeDisplay.textContent = "Current Mode: None"
+})
+
 function randomColor() {
     return Math.floor(Math.random() * 256)
 }
