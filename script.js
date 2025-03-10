@@ -7,3 +7,30 @@ const gridSizeButton = document.querySelector(".grid-size-button")
 const gridSizeDisplay = document.querySelector(".grid-size-display")
 const currentModeDisplay = document.querySelector(".grid-current-mode-display")
 
+let currentMode = "erase"
+let currentSize = 16
+gridSizeDisplay.textContent = `Current Grid Size: ${currentSize}`
+currentModeDisplay.textContent = "Current Mode: None"
+
+function createGrid(size) {
+    gridContainer.innerHTML = ""
+    gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`
+    gridContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`
+
+    for (let i = 0; i < size * size; i++){
+        const square = document.createElement("div")
+        square.classList.add("square")
+        square.addEventListener("mouseover", () => {
+            if(currentMode === "black"){
+                square.style.backgroundColor = "black"
+            } else if(currentMode === "rainbow"){
+                square.style.backgroundColor = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`
+            } else if(currentMode === "erase"){
+                square.style.backgroundColor = "white"
+            }
+        })
+        gridContainer.appendChild(square)
+    }
+}
+
+createGrid(currentSize)
