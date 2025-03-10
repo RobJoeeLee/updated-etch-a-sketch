@@ -33,4 +33,17 @@ function createGrid(size) {
     }
 }
 
+gridSizeButton.addEventListener("click" , () => {
+    let size = prompt("Please enter grid size (max 100):")
+    size = parseInt(size)
+
+    if(size > 100 || size < 1 || isNaN(size)){
+        alert("Please enter a number between 1 and 100.")
+        return
+    }
+    currentSize = size
+    createGrid(size)
+    gridSizeDisplay.textContent = `Current Grid Size: ${currentSize}`
+})
+
 createGrid(currentSize)
