@@ -46,4 +46,20 @@ gridSizeButton.addEventListener("click" , () => {
     gridSizeDisplay.textContent = `Current Grid Size: ${currentSize}`
 })
 
+blackButton.addEventListener("click" , () => {
+    currentMode = "black"
+    currentModeDisplay.textContent = "Current Mode: Black"
+})
+
+rainbowButton.addEventListener("click" , () => {
+    currentMode = "rainbow"
+    currentModeDisplay.textContent = "Current Mode: Rainbow"
+})
+
+eraseButton.addEventListener("click" , () => {
+    currentMode = "erase"
+    currentModeDisplay.textContent = "Current Mode: Erase"
+}) 
+
+
 createGrid(currentSize)
